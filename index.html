@@ -1,11 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Just Checking That The Repository Created and Working Properly.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<style>
+    *{
+        font-family: "Geist", sans-serif;
+    }
+</style>
+  </head>
+  <body class="min-h-screen bg-gray-100 p-4 md:p-8">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Job Application Tracker</h1>
+        <div class="bg-gray-50 rounded-lg border border-gray-200 p-5 mb-6  grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <p class="text-sm text-gray-500 mb-1">Total</p>
+                <p id="countTotal" class="text-3xl font-bold text-gray-600">8</p>
+            </div>
+
+            <div>
+                <p class="text-sm text-gray-500 mb-1">Interview</p>
+                <p id="countInterview" class="text-3xl font-bold text-green-500">0</p>
+            </div>
+
+            <div>
+                <p class="text-sm text-gray-500 mb-1">Rejected</p>
+                <p id="countRejected" class="text-3xl font-bold text-red-500">0</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-base font-semibold text-gray-800">Available Jobs</h2>
+                <span id="jobCountSection" class="text-sm text-gray-500">8 Jobs</span>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <button id="all-tab">All</button>
+                <button id="interview-tab">Interview</button>
+                <button id="rejected-tab">Rejected</button>
+            </div>
+        </section>
+    </div>
+  </body>
 </html>

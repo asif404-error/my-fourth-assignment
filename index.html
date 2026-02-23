@@ -10,50 +10,81 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-
-<style>
-    *{
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
         font-family: "Geist", sans-serif;
-    }
-</style>
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-gray-100 p-4 md:p-8">
-    <div class="max-w-3xl mx-auto">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">Job Application Tracker</h1>
-        <div class="bg-gray-50 rounded-lg border border-gray-200 p-5 mb-6  grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-                <p class="text-sm text-gray-500 mb-1">Total</p>
-                <p id="countTotal" class="text-3xl font-bold text-gray-600">8</p>
-            </div>
+  <body>
+    <section id="dashboard-section">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+          Job Application Tracker
+        </h1>
 
-            <div>
-                <p class="text-sm text-gray-500 mb-1">Interview</p>
-                <p id="countInterview" class="text-3xl font-bold text-green-500">0</p>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="card bg-base-100 shadow-sm p-4">
+            <p class="text-sm text-gray-500">Total</p>
+            <p id="countTotal" class="text-3xl font-bold text-gray-700">0</p>
+          </div>
 
-            <div>
-                <p class="text-sm text-gray-500 mb-1">Rejected</p>
-                <p id="countRejected" class="text-3xl font-bold text-red-500">0</p>
-            </div>
+          <div class="card bg-base-100 shadow-sm p-4">
+            <p class="text-sm text-gray-500">Interview</p>
+            <p id="countInterview" class="text-3xl font-bold text-green-500">
+              0
+            </p>
+          </div>
+
+          <div class="card bg-base-100 shadow-sm p-4">
+            <p class="text-sm text-gray-500">Rejected</p>
+            <p id="countRejected" class="text-3xl font-bold text-red-500">0</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <section>
-            <div class="flex items-center justify-between mb-3">
-                <h2 class="text-base font-semibold text-gray-800">Available Jobs</h2>
-                <span id="jobCountSection" class="text-sm text-gray-500">8 Jobs</span>
-            </div>
-        </section>
+    <main>
+      <section id="job-section" class="max-w-3xl mx-auto">
+        <div class="flex justify-between items-center mb-3">
+          <h2 class="font-semibold text-gray-800">Available Jobs</h2>
+          <span id="jobCountSection" class="text-sm text-gray-500">0 Jobs</span>
+        </div>
+      </section>
 
-        <section>
-            <div>
-                <button id="all-tab">All</button>
-                <button id="interview-tab">Interview</button>
-                <button id="rejected-tab">Rejected</button>
-            </div>
-        </section>
-    </div>
+      <section id="btn-tab-section" class="max-w-3xl mx-auto mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button
+            onclick="toggleStyle('btn-all-tab')"
+            id="btn-all-tab"
+            class="px-4 py-2 rounded-sm text-sm font-medium bg-blue-700 text-white"
+          >
+            All
+          </button>
+
+          <button
+            onclick="toggleStyle('btn-interview-tab')"
+            id="btn-interview-tab"
+            class="px-4 py-2 rounded-sm text-sm font-medium bg-gray-200"
+          >
+            Interview
+          </button>
+
+          <button
+            onclick="toggleStyle('btn-rejected-tab')"
+            id="btn-rejected-tab"
+            class="px-4 py-2 rounded-sm text-sm font-medium bg-gray-200"
+          >
+            Rejected
+          </button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

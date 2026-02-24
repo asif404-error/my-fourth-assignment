@@ -20,8 +20,13 @@ function calculateCount() {
   countInterview.innerText = interviewList.length;
   countRejected.innerText = rejectedList.length;
 
-  document.getElementById("jobCountSection").innerText =
-    allCard.children.length + " Jobs";
+  if (countList === "all") {
+    document.getElementById("jobCountSection").innerText = allCard.children.length + " Jobs";
+  } else if (countList === "interview") {
+    document.getElementById("jobCountSection").innerText = interviewList.length + " Jobs";
+  } else if (countList === "rejected") {
+    document.getElementById("jobCountSection").innerText = rejectedList.length + " Jobs";
+  }
 }
 
 function toggleStyle(id) {
@@ -40,7 +45,8 @@ function toggleStyle(id) {
   if (id === "btn-all-tab") countList = "all";
   if (id === "btn-interview-tab") countList = "interview";
   if (id === "btn-rejected-tab") countList = "rejected";
-
+  
+  calculateCount();
   filterCards();
 }
 

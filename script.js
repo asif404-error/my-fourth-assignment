@@ -24,7 +24,6 @@ function calculateCount() {
     allCard.children.length + " Jobs";
 }
 
-
 function toggleStyle(id) {
   btnAll.classList.remove("bg-blue-700", "text-white");
   btnInterview.classList.remove("bg-blue-700", "text-white");
@@ -102,3 +101,89 @@ allCard.addEventListener("click", function (e) {
     setRejected(card);
   }
 });
+
+function setInterview(card) {
+  const statusText = card.querySelector(".status-badge");
+
+  if (card.dataset.status === "interview") {
+    removeFromLists(card);
+
+    card.dataset.status = "all";
+    statusText.innerText = "NOT APPLIED";
+
+    statusText.classList.remove("bg-green-100", "text-green-600");
+    statusText.classList.add("bg-gray-100", "text-gray-600");
+
+    calculateCount();
+    filterCards();
+    return;
+  }
+
+  removeFromLists(card);
+
+  card.dataset.status = "interview";
+  interviewList.push(card);
+
+  statusText.innerText = "INTERVIEW";
+  statusText.classList.remove(
+    "bg-gray-100",
+    "text-gray-600",
+    "bg-red-100",
+    "text-red-600",
+  );
+  statusText.classList.add("bg-green-100", "text-green-600");
+
+  calculateCount();
+  filterCards();
+}
+
+function setRejected(card) {
+  const statusText = card.querySelector(".status-badge");
+
+  if (card.dataset.status === "rejected") {
+    removeFromLists(card);
+
+    card.dataset.status = "all";
+    statusText.innerText = "NOT APPLIED";
+
+    statusText.classList.remove("bg-red-100", "text-red-600");
+    statusText.classList.add("bg-gray-100", "text-gray-600");
+
+    calculateCount();
+    filterCards();
+    return;
+  }
+
+  removeFromLists(card);
+
+  card.dataset.status = "rejected";
+  rejectedList.push(card);
+
+  statusText.innerText = "REJECTED";
+  statusText.classList.remove(
+    "bg-gray-100",
+    "text-gray-600",
+    "bg-green-100",
+    "text-green-600",
+  );
+  statusText.classList.add("bg-red-100", "text-red-600");
+
+  calculateCount();
+  filterCards();
+}
+
+function removeFromLists(card) {
+  for (let i = 0; i < interviewList.length; i++) {
+    if (interviewList[i] === card) {
+      interviewList.splice(i, 1);
+      break;
+    }
+  }
+
+  for (let i = 0; i < rejectedList.length; i++) {
+    if (rejectedList[i] === card) {
+      rejectedList.splice(i, 1);
+      break;
+    }
+  }
+}

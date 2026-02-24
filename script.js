@@ -216,3 +216,5 @@ window.addEventListener("DOMContentLoaded", function () {
 // But, if I was creating cards dynamically using JS (Like, declaring var and make an object into an array). Then, I would needed the render() function to create and append the cards into the DOM because html wouldn't have any cards written in it. Just as the conceptual session by Fahim Prodhan Vai.
 
 // Since, I already written the cards in html, 'DOMContentLoaded' with the initial state is the correct approach for my code. That's what I get to know from some documents in google and form the AI and used it.
+
+// There was a few problem at calculateCount section and toggleStyle section. I have noticed that after submitting. I have fixed that problem before the deadline and made a final commit and pushed the code.

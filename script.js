@@ -187,3 +187,26 @@ function removeFromLists(card) {
     }
   }
 }
+
+window.addEventListener("DOMContentLoaded", function () {
+  const cards = allCard.children;
+
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].dataset.status = "all";
+  }
+
+  calculateCount();
+  filterCards();
+});
+
+// I have used simple for loops and if-else, else-if statement.
+
+// When an user's browser opens an HTML file, it reads the code from top to bottom. So sometimes users JavaScript runs before the HTML elements are fully loaded. That means if the user try to grab an element like document.getElementById("countTotal") before the browser has read that element, user will get null — which means nothing.
+
+// So DOMContentLoaded is basically a user telling the browser — "Wait! until you have fully read and loaded all the HTML first, then run my JavaScript."
+
+// The reason I have used this "DOMContentLoaded" because the cards I have already written in the HTML. So, there is no need to render them dynamically using JS. All 8 cards are written in html file, so on page load I just need to set the 'data-staus' of each existing card to 'all'. Calculate the counts and filter the cards.
+
+// But, if I was creating cards dynamically using JS (Like, declaring var and make an object into an array). Then, I would needed the render() function to create and append the cards into the DOM because html wouldn't have any cards written in it. Just as the conceptual session by Fahim Prodhan Vai.
+
+// Since, I already written the cards in html, 'DOMContentLoaded' with the initial state is the correct approach for my code. That's what I get to know from some documents in google and form the AI and used it.
